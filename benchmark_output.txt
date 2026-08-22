@@ -1,0 +1,43 @@
+Benchmarking from-scratch implementations against scikit-learn
+numpy 2.4.4
+
+  running linear regression ...
+  running ridge ...
+  running PCA ...
+  running k-means ...
+  running decision trees ...
+  running random forests ...
+  running neural network ...
+
+====================================================================================================
+EXACT AGREEMENT REQUIRED
+Deterministic linear algebra: one right answer, must match to precision.
+====================================================================================================
+algorithm                             dataset                 ours      sklearn    agreement    speed  
+----------------------------------------------------------------------------------------------------------
+LinearRegression (svd)                diabetes              0.5177       0.5177     0.00e+00     0.2x  ok 
+LinearRegression (normal)             diabetes              0.5177       0.5177     2.50e-11     0.1x  ok 
+Ridge (alpha=0.1)                     diabetes              0.5126       0.5126     2.84e-13     0.1x  ok 
+Ridge (alpha=10.0)                    diabetes              0.1889       0.1889     2.84e-14     0.1x  ok 
+PCA (k=5)                             breast_cancer         0.8473       0.8473     0.00e+00     0.7x  ok 
+
+====================================================================================================
+PERFORMANCE PARITY REQUIRED
+Randomised or greedy: models differ, predictive quality must not.
+====================================================================================================
+algorithm                             dataset                 ours      sklearn    agreement    speed  
+----------------------------------------------------------------------------------------------------------
+LinearRegression (gradient descent)   diabetes              0.5177       0.5177     7.15e-14   188.8x  ok 
+KMeans (k=6)                          blobs 3000x8       5.297e+04    5.297e+04     2.75e-16     0.3x  ok 
+DecisionTreeClassifier (depth 6)      breast_cancer         0.9181       0.9064     1.17e-02     4.4x  ok 
+DecisionTreeRegressor (depth 4)       diabetes              0.1165       0.1386     2.20e-02     4.7x  ok 
+RandomForestClassifier (100 trees)    wine                  1.0000       1.0000     0.00e+00     1.7x  ok 
+RandomForestRegressor (50 trees)      diabetes              0.2983       0.2921     6.16e-03    19.7x  ok 
+MLPClassifier (64-32, Adam)           digits                0.9722       0.9685     3.70e-03     1.5x  ok 
+
+12/12 checks passed
+Worst disagreement on a deterministic algorithm: 2.50e-11 (float64 epsilon is 2.2e-16)
+Slowest relative to sklearn: LinearRegression (gradient descent) (189x)
+Closest to sklearn:          Ridge (alpha=10.0) (0.1x)
+
+Wrote /home/claude/ml-from-scratch/results/benchmark.png and benchmark.md

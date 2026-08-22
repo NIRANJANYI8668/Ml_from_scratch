@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+# NOTE: results/ is intentionally NOT ignored.
+# The README embeds results/benchmark.png, so it must be committed or the
+# image will show as broken on GitHub.
