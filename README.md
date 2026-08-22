@@ -1,7 +1,7 @@
 # ML from scratch, benchmarked against scikit-learn
 
-<!-- Replace YOUR-USERNAME with your GitHub username once the repo is pushed. -->
-![tests](https://github.com/YOUR-USERNAME/ml-from-scratch/actions/workflows/tests.yml/badge.svg)
+
+![tests](https://github.com/NIRANJANYI8668/ml-from-scratch/actions/workflows/tests.yml/badge.svg)
 ![python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 
